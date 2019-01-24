@@ -4,30 +4,29 @@ class View
     @player_1 = player_1
     @player_2 = player_2
     @board = board
+    @choices = {A1: "a1", A2: "a2", A3: "a3", B1: "b1", B2: "b2", B3: "b3", C1: "c1", C2: "c2", C3: "c3"}
     puts "Le jeu commence"
-    puts "#{@player_1.name}, à votre tour."
-    puts @board.show_board
   end
 
-  def turn(player)
-    puts "#{player} à votre tour."
-    puts "Quelle case voulez-vous jouer ?"
-    print "> "
-    choice = gets.chomp
+  def turn(player, game)
+    prompt = TTY::Prompt.new
+    puts "Tour n°#{game.turn_counter}"
+    puts "#{player.name} à votre tour."
+    @board.show_board
+    unless @choices.length == 0
+      select = prompt.select("Quelle case voulez-vous jouer ?", @choices, cycle: true)
+      @choices.delete(select.upcase.to_sym)
+      return select
+    else
+      game_end
+    end
   end
 
-  def game_end(result)
+  def game_end
     puts "Jeu terminé !"
-    puts result
   end
 
   def show_board(boxes, player)
-    boxes.each do |box|
-      if box == true
-        puts " _ \n| #{player} |\n _ "
-      else
-        puts " _ \n| |\n _ "
-      end
-    end
+
   end
 end
