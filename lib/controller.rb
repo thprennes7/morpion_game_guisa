@@ -13,10 +13,10 @@ class Controller
     @game = Game.new
     @board = Board.new
     @view = View.new(@player_1, @player_2, @board)
-    turn
+    game
   end
 
-  def turn
+  def game
     check = false
     while check == false
       @player = @game.who_plays(@player_1, @player_2)
