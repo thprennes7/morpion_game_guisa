@@ -10,6 +10,7 @@ class Router
     if start == true
       controller.start_game
     else
-      puts "Done"
+      puts "Au revoir !"
+    end
   end
 end
