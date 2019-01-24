@@ -23,6 +23,7 @@ class Board
   end
 
   def show_board
+    puts ""
     puts "  1  2  3"
     array = ["A", "B", "C"]
     @board.each_with_index do |line, i|
@@ -31,6 +32,20 @@ class Board
         print " #{value} "
       end
       puts ""
+    end
+  end
+
+  def check_board(player)
+    flattened_board = {}
+    @board.each do |line|
+      line.each do |key, value|
+        flattened_board[key] = value
+      end
+    end
+    if (flattened_board[:a1] == player.symbol && flattened_board[:b2] == player.symbol && flattened_board[:c3] == player.symbol) || (flattened_board[:a3] == player.symbol && flattened_board[:b2] == player.symbol && flattened_board[:c1] == player.symbol) || (flattened_board[:a1] == player.symbol && flattened_board[:b1] == player.symbol && flattened_board[:b1] == player.symbol) || (flattened_board[:a2] == player.symbol && flattened_board[:b2] == player.symbol && flattened_board[:c2] == player.symbol) || (flattened_board[:a3] == player.symbol && flattened_board[:b3] == player.symbol && flattened_board[:c3] == player.symbol) || (flattened_board[:a1] == player.symbol && flattened_board[:a2] == player.symbol && flattened_board[:a3] == player.symbol) || (flattened_board[:b1] == player.symbol && flattened_board[:b2] == player.symbol && flattened_board[:b3] == player.symbol) || (flattened_board[:c1] == player.symbol && flattened_board[:c2] == player.symbol && flattened_board[:c3] == player.symbol)
+      return true
+    else
+      return false
     end
   end
 end

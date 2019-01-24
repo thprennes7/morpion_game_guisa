@@ -1,5 +1,5 @@
 class View
-
+attr_accessor :choices
   def initialize(player_1, player_2, board)
     @player_1 = player_1
     @player_2 = player_2
@@ -10,23 +10,18 @@ class View
 
   def turn(player, game)
     prompt = TTY::Prompt.new
-    puts "Tour n°#{game.turn_counter}"
+    puts "____________________________"
+    puts "\nTour n°#{game.turn_counter}"
     puts "#{player.name} à votre tour."
     @board.show_board
-    unless @choices.length == 0
-      select = prompt.select("Quelle case voulez-vous jouer ?", @choices, cycle: true)
-      @choices.delete(select.upcase.to_sym)
-      return select
-    else
-      game_end
-    end
+    select = prompt.select("\nQuelle case voulez-vous jouer ?", @choices, cycle: true)
+    @choices.delete(select.upcase.to_sym)
+    return select
   end
 
-  def game_end
-    puts "Jeu terminé !"
-  end
-
-  def show_board(boxes, player)
-
+  def game_end(winner)
+    @board.show_board
+    puts "\nJeu terminé !"
+    puts "#{winner}"
   end
 end

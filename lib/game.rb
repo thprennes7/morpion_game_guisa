@@ -16,7 +16,21 @@ class Game
     end
   end
 
-  def check_end
-    return false
+  def check_end(choices, board)
+    if board == true
+      return true
+    elsif choices.length == 0
+      return true
+    else
+      return false
+    end
+  end
+
+  def check_winner(player, board)
+    if board == true
+      return "#{player.name} a gagné"
+    else
+      return "C'est une égalité !"
+    end
   end
 end
