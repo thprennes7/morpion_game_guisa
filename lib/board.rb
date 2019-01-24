@@ -1,18 +1,28 @@
 class Board
-  attr_accessor :A1, :A2, :A3, :B1, :B2, :B3, :C1, :C2, :C3
+  attr_accessor :a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3, :board
   def initialize
-    @A1 = false
-    @A2 = false
-    @A3 = false
-    @B1 = false
-    @B2 = false
-    @B3 = false
-    @C1 = false
-    @C2 = false
-    @C3 = false
+    @a1 = "-"
+    @a2 = "-"
+    @a3 = "-"
+    @b1 = "-"
+    @b2 = "-"
+    @b3 = "-"
+    @c1 = "-"
+    @c2 = "-"
+    @c3 = "-"
+    @board = [[@a1, @a2, @a3], [@b1, @b2, @b3], [@c1, @c2, @c3]]
   end
 
-  def fill
+  def choice()
+  end
 
+  def show_board
+    @board = [[@a1, @a2, @a3], [@b1, @b2, @b3], [@c1, @c2, @c3]]
+    @board.each do |line|
+      line.each do |el|
+        print el
+      end
+      print ""
+    end
   end
 end

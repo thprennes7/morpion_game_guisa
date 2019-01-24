@@ -6,6 +6,7 @@ class View
     @board = board
     puts "Le jeu commence"
     puts "#{@player_1.name}, à votre tour."
+    puts @board.show_board
   end
 
   def turn(player)
@@ -15,8 +16,9 @@ class View
     choice = gets.chomp
   end
 
-  def game_end
-
+  def game_end(result)
+    puts "Jeu terminé !"
+    puts result
   end
 
   def show_board(boxes, player)
