@@ -1,6 +1,9 @@
+# création de la class view
 class View
+  # On permet l'accès à la variable choices
 attr_accessor :choices
 
+ # On récupère les deux joueurs et le board
   def initialize(player_1, player_2, board)
     @player_1 = player_1
     @player_2 = player_2
@@ -9,6 +12,7 @@ attr_accessor :choices
     puts "Le jeu commence"
   end
 
+   # Permet à l'aide d'un prompt de selectionner une case pour jouer un tour.
   def turn(player, game)
     prompt = TTY::Prompt.new
     puts "____________________________"
@@ -19,7 +23,8 @@ attr_accessor :choices
     @choices.delete(select.upcase.to_sym)
     return select
   end
-
+  
+  # Quand le jeu est terminé et que nous avons un gagnant affiche le joueur gagnant
   def game_end(winner)
     @board.show_board
     puts "\nJeu terminé !"

@@ -1,3 +1,4 @@
+# crée une class joueur qui permet de créer des objets joueurs
 class Player
   attr_accessor :name, :symbol
 
