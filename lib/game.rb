@@ -13,10 +13,10 @@ class Game
       return player_1
     else
       return player_2
+    end
+
+    def check_end()
+
+    end
   end
-
-  def check_end()
-
-  end
-
 end

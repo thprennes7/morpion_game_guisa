@@ -5,7 +5,7 @@ class View
     @player_2 = player_2
     @board = board
     puts "Le jeu commence"
-    puts "#{@player_1}, à votre tour."
+    puts "#{@player_1.name}, à votre tour."
   end
 
   def turn(player)
@@ -20,10 +20,12 @@ class View
   end
 
   def show_board(boxes, player)
-    case.each do |box|
+    boxes.each do |box|
       if box == true
         puts " _ \n| #{player} |\n _ "
       else
         puts " _ \n| |\n _ "
+      end
+    end
   end
 end

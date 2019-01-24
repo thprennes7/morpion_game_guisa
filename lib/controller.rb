@@ -12,14 +12,13 @@ class Controller
     @player_2.symbol = "o"
     @game = Game.new
     @board = Board.new
-    @view = View.new(player_1, player_2, board)
+    @view = View.new(@player_1, @player_2, @board)
   end
 
   def turn
     while game.check_end == false
       player = @game.who_plays(@player_1, @player_2)
       choice = @view.turn(player.name)
-      turn = @game.turn(choice)
       new_board = @board.fill(turn)
       @view.board(new_board)
     end
