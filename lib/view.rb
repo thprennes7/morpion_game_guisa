@@ -1,7 +1,9 @@
 class View
-attr_accessor :player_1, :player_2, :board
 
-  def initialize(@player_1, @player_2, @board)
+  def initialize(player_1, player_2, board)
+    @player_1 = player_1
+    @player_2 = player_2
+    @board = board
     puts "Le jeu commence"
     puts "#{@player_1}, à votre tour."
   end
@@ -13,7 +15,7 @@ attr_accessor :player_1, :player_2, :board
     choice = gets.chomp
   end
 
-  def check_end(game)
+  def game_end
 
   end
 

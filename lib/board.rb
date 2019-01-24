@@ -12,5 +12,7 @@ class Board
     @C3 = false
   end
 
-  def 
+  def fill
+
+  end
 end

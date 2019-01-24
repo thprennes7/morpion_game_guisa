@@ -18,12 +18,11 @@ class Controller
   def turn
     while game.check_end == false
       player = @game.who_plays(@player_1, @player_2)
-      choice = @view.turn(player)
-      
+      choice = @view.turn(player.name)
       turn = @game.turn(choice)
       new_board = @board.fill(turn)
       @view.board(new_board)
     end
-    view.game_end
+    view.game_end(game.check_end)
   end
 end
