@@ -5,7 +5,7 @@ require 'player'
 
 class Controller
 
-   # On appel les joueurs depuis la class player et on attribut les symboles du morpion à chaque joueur 
+   # On appel les joueurs depuis la class player et on attribut les symboles du morpion à chaque joueur
   def start_game
     @player_1 = Player.new
     @player_1.symbol = "X"
@@ -16,11 +16,11 @@ class Controller
     @view = View.new(@player_1, @player_2, @board)
     game
   end
-  
-  # Une méthode qui lance le jeu 
+
+  # Une méthode qui lance le jeu
   def game
     check = false
-    # Boucle qui crée les tours de jeu 
+    # Boucle qui crée les tours de jeu
     while check == false
       # On défini le joueur à ce tour en appelant les classes player et game
       @current_player = @game.who_plays(@player_1, @player_2)
@@ -33,10 +33,10 @@ class Controller
     end
     game_end
   end
-  
+
   # Méthode qui affiche la fin de partie et le gagnant. Puis relance une partie
   def game_end
-    @view.game_end(@game.check_winner(@current_player, @board.check_board(@current_player)))
+    @view.game_end(@game.check_winner(@current_player, @board.check_board(@current_player.symbol)))
     Router.new
   end
 end
