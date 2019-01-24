@@ -1,5 +1,6 @@
 class View
 attr_accessor :choices
+
   def initialize(player_1, player_2, board)
     @player_1 = player_1
     @player_2 = player_2

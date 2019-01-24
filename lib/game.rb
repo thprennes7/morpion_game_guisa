@@ -16,7 +16,7 @@ class Game
     end
   end
 
-  def check_end(choices, board)
+  def check_if_end(choices, board)
     if board == true
       return true
     elsif choices.length == 0

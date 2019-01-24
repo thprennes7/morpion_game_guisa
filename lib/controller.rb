@@ -19,16 +19,16 @@ class Controller
   def game
     check = false
     while check == false
-      @player = @game.who_plays(@player_1, @player_2)
-      choice = @view.turn(@player, @game)
-      @board.fill(choice, @player)
-      check = @game.check_end(@view.choices, @board.check_board(@player))
+      @current_player = @game.who_plays(@player_1, @player_2)
+      choice = @view.turn(@current_player, @game)
+      @board.fill(choice, @current_player)
+      check = @game.check_if_end(@view.choices, @board.check_board(@current_player.symbol))
     end
     game_end
   end
 
   def game_end
-    @view.game_end(@game.check_winner(@player, @board.check_board(@player)))
+    @view.game_end(@game.check_winner(@current_player, @board.check_board(@current_player)))
     Router.new
   end
 end
